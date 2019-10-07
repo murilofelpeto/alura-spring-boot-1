@@ -25,4 +25,16 @@ public class TopicoService {
 	public Topico salvar(Topico topico) {
 		return repository.save(topico);
 	}
+
+	public Topico findById(Long id) {
+		return repository.findById(id).orElseThrow(() -> new RuntimeException("Tópico não encontrado!"));
+	}
+
+	public Topico atualizar(Topico topico) {
+		return repository.save(topico);
+	}
+
+	public void delete(Topico topico) {
+		repository.delete(topico);
+	}
 }

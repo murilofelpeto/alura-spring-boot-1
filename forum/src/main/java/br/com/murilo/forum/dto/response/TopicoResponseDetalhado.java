@@ -1,7 +1,9 @@
 package br.com.murilo.forum.dto.response;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
+import br.com.murilo.forum.entity.StatusTopico;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,10 +15,14 @@ import lombok.ToString;
 @Setter
 @ToString
 @EqualsAndHashCode
-public class TopicoResponse {
+public class TopicoResponseDetalhado {
 
 	private Long id;
 	private String titulo;
 	private String mensagem;
-	private LocalDateTime dataCriacao;	
+	private LocalDateTime dataCriacao;
+	private StatusTopico status;
+	private String nomeAutor;
+	private List<RespostaResponse> respostas;
+	
 }
