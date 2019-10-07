@@ -2,6 +2,8 @@ package br.com.murilo.forum.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,7 +36,7 @@ public class TopicosController {
 	}
 
 	@PostMapping
-	public ResponseEntity<TopicoResponse> cadastrar(@RequestBody TopicoRequest request) {
+	public ResponseEntity<TopicoResponse> cadastrar(@RequestBody @Valid TopicoRequest request) {
 		return new ResponseEntity<>(facade.salvarTopico(request), HttpStatus.CREATED);
 	}
 
