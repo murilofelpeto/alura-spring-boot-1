@@ -3,6 +3,8 @@ package br.com.murilo.forum.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import br.com.murilo.forum.entity.Topico;
@@ -14,8 +16,8 @@ public class TopicoService {
 	@Autowired
 	private TopicoRepository repository;
 
-	public List<Topico> findAll() {
-		return repository.findAll();
+	public Page<Topico> findAll(Pageable paginacao) {
+		return repository.findAll(paginacao);
 	}
 	
 	public List<Topico> findByCursoNome(String nomeCurso){

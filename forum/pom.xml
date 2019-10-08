@@ -55,6 +55,12 @@
 			<artifactId>h2</artifactId>
 		</dependency>
 		<!-- DATABASES -->
+		<!-- CACHE -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-cache</artifactId>
+		</dependency>
+		<!-- CACHE -->
 		<!-- TESTS -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

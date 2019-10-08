@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
 import br.com.murilo.forum.converter.Converter;
@@ -27,8 +29,9 @@ public class TopicoFacade {
 	@Autowired
 	private CursoService cursoService;
 
-	public List<TopicoResponse> findAll() {
-		return Converter.parseListObjects(topicoService.findAll(), TopicoResponse.class);
+	public Page<TopicoResponse> findAll(Pageable paginacao) {
+		Page<Topico> topicos = topicoService.findAll(paginacao);
+		return topicos.map(this::convertToResponse);
 	}
 
 	public List<TopicoResponse> findByCursoNome(String nomeCurso) {
@@ -65,5 +68,9 @@ public class TopicoFacade {
 	public void delete(Long id) {
 		Topico topico = topicoService.findById(id);
 		topicoService.delete(topico);		
+	}
+	
+	private TopicoResponse convertToResponse(Topico topico) {
+		return Converter.parseObject(topico, TopicoResponse.class);
 	}
 }
