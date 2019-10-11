@@ -1,4 +1,4 @@
-insert into USUARIO (nome, email, senha) values ('Karleen Burgoin', 'kburgoin0@ftc.gov', 'olLi7Lizu');
+insert into USUARIO (nome, email, senha) values ('Karleen Burgoin', 'kburgoin0@ftc.gov', '$2a$10$56.ZeP1QZwOilHMc1KhhouRx7zvx6G0x8pvGnRe1F.TeDInS.z58y');
 insert into USUARIO (nome, email, senha) values ('Aurore Musker', 'amusker1@drupal.org', 'bNJ5K5QlT');
 insert into USUARIO (nome, email, senha) values ('Taite Wordington', 'twordington2@mediafire.com', 'JLv6EYNXUsc');
 insert into USUARIO (nome, email, senha) values ('Martyn McEwen', 'mmcewen3@howstuffworks.com', 'cWMQ4t');

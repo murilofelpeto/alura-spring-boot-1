@@ -14,4 +14,5 @@ public class ForumApplication {
 		SpringApplication.run(ForumApplication.class, args);
 	}
 
+	//Senha: olLi7Lizu
 }
