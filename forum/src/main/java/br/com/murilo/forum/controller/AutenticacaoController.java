@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.murilo.forum.config.security.TokenService;
 import br.com.murilo.forum.dto.request.UsuarioRequest;
+import br.com.murilo.forum.dto.response.TokenDTO;
 
 @RestController
 @RequestMapping("/auth")
@@ -27,13 +28,13 @@ public class AutenticacaoController {
 	private TokenService tokenService;
 	
 	@PostMapping
-	public ResponseEntity<?> autenticar(@RequestBody @Valid UsuarioRequest usuario){
+	public ResponseEntity<TokenDTO> autenticar(@RequestBody @Valid UsuarioRequest usuario){
 		UsernamePasswordAuthenticationToken login = usuario.converter();
 		
 		try {
 			Authentication authenticate = auth.authenticate(login);
 			String token = tokenService.gerarToken(authenticate);
-			return ResponseEntity.ok().build();
+			return ResponseEntity.ok(new TokenDTO(token, "Bearer"));
 		} catch (AuthenticationException e) {
 			return ResponseEntity.badRequest().build();
 		}
